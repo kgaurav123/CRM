@@ -50,6 +50,7 @@ def logoutUser(request):
     return redirect("login")
 
 
+@allowed_users(allowed_roles=['admin'])
 def home(request):
     orders = Order.objects.all()
     customers = Customer.objects.all()
@@ -64,7 +65,6 @@ def home(request):
                'total_orders': total_orders, 'delivered': delivered,
                'pending': pending
                }
-
     return render(request, "accounts/dashboard.html", context)
 
 

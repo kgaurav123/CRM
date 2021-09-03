@@ -29,3 +29,4 @@ urlpatterns = [
 
     path("user/", views.userPage, name="user_page"),
 ]
+
